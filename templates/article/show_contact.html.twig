@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Contactsapp  Test{% endblock %}
+
+
+{% block body %}
+
+
+<div id="contact">
+
+{% if contact.id %}
+
+    <img class="shadow" src="../img/{{ contact.picture }}" alt="Example" style="width: 200px"><br><br>
+
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+
+
+    <br><br><br><br>
+    <a href="/contact_delete/delete/{{ contact.id }}" class="btn btn-danger delete-contact" data-id="{{ contact.id }}">-</a> Remove this contact permanently.<br><br><br><br>
+    </div>
+
+
+
+
+
+    {% else %}
+    <p>contact deleted</p>
+{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('main.js') }}"></script>
+{% endblock %}
+

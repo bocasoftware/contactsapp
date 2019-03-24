@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Contactsapp  Test{% endblock %}
+
+
+{% block body %}
+<h1>My contacts</h1>
+
+
+{% if names %}
+
+    <table class="table table-striped">
+        <thead class="thead-primary">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for name in names %}
+            <tr>
+                <td><img class="shadow" src="img/{{ name.picture }}" alt="Example" style="width: 100px"></td>
+                <td>{{ name.firstname }}</td>
+                <td >{{ name.lastname }}</td>
+
+
+                <td>
+                  <h5><a href="/contact/{{ name.id }}" class="btn btn-primary">+</a></h5>
+                </td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+<p>no contacts</p>
+{% endif %}
+
+{% endblock %}
+
+
+{#<h1>{{ title }}</h1>#}
